@@ -1,0 +1,130 @@
+.form {
+  background: #232a39;
+  color: #f6b343;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.userform {
+  background-color: #fff;
+}
+.login-tab {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  min-width: 400px;
+  padding: 30px 40px;
+  background-color: #14171f;
+  border-top: #f6b343 8px solid;
+}
+h2 {
+  font-size: 38px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 20px 12px;
+  background-color: #0f1016;
+  border: none;
+  border-left: 5px #f6b343 solid;
+  color: #c28f38;
+  box-sizing: border-box;
+}
+::-webkit-input-placeholder {
+  color: #c28f38;
+}
+input:focus {
+  outline: none;
+}
+.forgot-credentials {
+  display: flex;
+  gap: 15px;
+  color: #6d4f1b;
+  font-size: 14px;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.submit-button {
+  font-size: 20px;
+  margin-top: 20px;
+  width: 100%;
+  padding: 20px;
+  border: none;
+  cursor: pointer;
+}
+.submit-button.login {
+  background-color: #f6b343;
+}
+.submit-button.authenticating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; 
+  background-color: #a5803f;
+}
+
+.btn-ring:after {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 15px;
+ 
+  border-radius: 50%;
+  border: 3px solid #000;
+  border-color: #000 transparent #000 transparent;
+  animation: ring 1.2s linear infinite;
+}
+@keyframes ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.invalidCredentials {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+  color: brown;
+}
+@media screen and (max-width: 480px) {
+  .login-tab {
+    min-width: 100px;
+    padding: 15px 20px;
+    border-top: #f6b343 5px solid;
+  }
+  h2 {
+    font-size: 26px;
+    margin-bottom: 15px;
+  }
+  .login-form {
+    gap: 10px;
+  }
+  input {
+    padding: 12px 6px;
+    border-left: 3px #f6b343 solid;
+    font-size: 10px;
+  }
+  .forgot-credentials {
+    gap: 10px;
+    font-size: 12px;
+  }
+  .submit-button {
+    font-size: 14px;
+    margin-top: 14px;
+    padding: 12px;
+  }
+}
