@@ -10,43 +10,7 @@
   border-radius: 40px;
   box-sizing: border-box;
 }
-/* .sidebar {
-  border-radius: 20px 0 0 20px;
-  background-color: #041124;
-  min-width: 20%;
-  color: #fff;
-  padding: 30px;
-  box-sizing: border-box;
-}
-.sidebar-top {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px;
-  border-bottom: solid 2px #2b2d38;
-}
-.sidebar-heading {
-  font-size: 20px;
-}
-.price-range-text {
-  margin-top: 20px;
-  font-size: 18px;
-}
-.filter-range {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.filter-label {
-  display: flex;
-  gap: 8px;
-  font-size: 14px;
-}
-.filter-input {
-  width: 16px;
-  height: 16px;
-} */
+
 .homepage-right {
   width: 100%;
   overflow: scroll;
@@ -108,7 +72,6 @@
   border-radius: 50%;
   width: 30px;
 }
-
 
 
 @media screen and (max-width: 480px) {
