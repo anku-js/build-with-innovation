@@ -10,10 +10,10 @@ export default function Sidebar({ priceFilter, handleFilterChange }: Props) {
   const priceRanges = [
     { label: "All", value: "" },
     { label: "Below 200", value: "0-200" },
-    { label: "Rs.201 - Rs.400", value: "201-400" },
-    { label: "Rs.401 - Rs.600", value: "401-600" },
-    { label: "Rs.601 - Rs.800", value: "601-800" },
-    { label: "Rs.801 - Rs.1000", value: "801-1000" },
+    { label: "Rs. 201 - Rs. 400", value: "201-400" },
+    { label: "Rs. 401 - Rs. 600", value: "401-600" },
+    { label: "Rs. 601 - Rs. 800", value: "601-800" },
+    { label: "Rs. 801 - Rs. 1000", value: "801-1000" },
     { label: "Above 1000", value: "over1000" },
   ];
   return (
