@@ -1,3 +1,4 @@
+import "./ProductCard.css"
 import { FaStar } from "react-icons/fa";
 import { FaSquareMinus } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
