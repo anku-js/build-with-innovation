@@ -8,8 +8,9 @@
   height: 100vh;
   padding: 20px;
   border-radius: 40px;
+  box-sizing: border-box;
 }
-.sidebar {
+/* .sidebar {
   border-radius: 20px 0 0 20px;
   background-color: #041124;
   min-width: 20%;
@@ -45,9 +46,11 @@
 .filter-input {
   width: 16px;
   height: 16px;
-}
+} */
 .homepage-right {
   width: 100%;
+  overflow: scroll;
+  box-sizing: border-box;
 }
 .homepage-navbar {
   display: flex;
@@ -55,6 +58,7 @@
   align-items: center;
   padding: 10px 15px;
   background-color: #fff;
+  border-radius: 0 20px 0 0;
 }
 .navbar-heading {
   margin-left: 15px;
@@ -79,6 +83,19 @@
 }
 .navbar-input:focus {
   outline: none;
+}
+.cart {
+  display: flex;
+  background-color: #ed3d68;
+  color: #fff;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+  font-size: 14px;
+  border-radius: 10px;
+}
+.cart-info {
+  width: 5em;
 }
 .user-info {
   display: flex;
@@ -112,12 +129,26 @@
   box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
     rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
     rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  cursor: pointer;
 }
 .products:hover {
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
     rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
     rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
+.products-description-top {
+  display: flex;
+  align-items: center;
+}
+.add-toCart-button {
+  font-size: 16px;
+  border: 1px solid #eaedf2;
+  border-radius: 4px;
+  cursor: pointer;
+  box-sizing: border-box;
+  color: #ed3d68;
+}
+
 .products-title {
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -156,4 +187,54 @@
   font: 12px;
   fill: #f6b343;
   color: #f6b343;
+}
+
+
+@media screen and (max-width: 480px) {
+  .homepage {
+    flex-direction: column;
+    height: 100%;
+    gap: 10px;
+  }
+  .sidebar {
+    border-radius: 20px;
+  }
+  .homepage-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .homepage-navbar {
+    flex-direction: column;
+    border-radius: 20px;
+    gap: 20px;
+  }
+  .navbar-heading {
+    margin-left: 0;
+  }
+  .navbar-right {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .navbar-divider {
+    display: none;
+  }
+  .navbar-label {
+    box-sizing: border-box;
+  }
+  .cart {
+    padding: 5px;
+  }
+  .user-info {
+    flex-direction: row-reverse;
+  }
+  .product-list-container {
+    padding: 0;
+  }
+  .product-list {
+    grid-template: auto/repeat(1, 1fr);
+  }
+  .products-description-top {
+    justify-content: space-between;
+  }
 }

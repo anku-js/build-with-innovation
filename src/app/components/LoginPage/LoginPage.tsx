@@ -5,23 +5,29 @@ import Cookies from "js-cookie";
 import { RxCrossCircled } from "react-icons/rx";
 import { useRouter } from "next/navigation";
 
+const initialUserCredentials = {
+  username: "",
+  password: "",
+};
+
+const initialApiResponse = {
+  status: "",
+  message: "",
+};
+
 export default function LoginPage() {
-  const [credentialsByUser, setCredentialsByUser] = useState({
-    username: "",
-    password: "",
-  });
-  const [apiResponse, setApiResponse] = useState({
-    status: "",
-    message: "",
-  });
-  const [isAuthenticating, setIsAuthenticating] = useState(false);
   const router = useRouter();
+  const [credentialsByUser, setCredentialsByUser] = useState(
+    initialUserCredentials
+  );
+  const [apiResponse, setApiResponse] = useState(initialApiResponse);
+  const [isAuthenticating, setIsAuthenticating] = useState(false);
 
   function handleInputChange(e: ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target;
-    setCredentialsByUser((prevFormData) => {
+    setCredentialsByUser((prevState) => {
       return {
-        ...prevFormData,
+        ...prevState,
         [name]: value,
       };
     });
@@ -65,62 +71,62 @@ export default function LoginPage() {
     }
   };
   return (
-    <div className="form">
-      <div className="container">
-        <div id="userform">
-          <div className="login-tab">
-            <h2 className="loginText">Login</h2>
-            <form className="login-form" onSubmit={handleSubmit}>
-              {apiResponse.message ? (
-                <div className="invalidCredentials">
-                  <RxCrossCircled />
-                  <p>{apiResponse.message}</p>
-                </div>
+    <div className="form-container">
+      <div id="userform">
+        <div className="login-tab">
+          <h2 className="loginText">Login</h2>
+          <form className="login-form" onSubmit={handleSubmit}>
+            {apiResponse.message ? (
+              <div className="invalidCredentials">
+                <RxCrossCircled />
+                <p>{apiResponse.message}</p>
+              </div>
+            ) : (
+              ""
+            )}
+            <div className="form-group">
+              <input
+                onChange={handleInputChange}
+                placeholder="username *"
+                className="form-control"
+                id="username"
+                required
+                data-validation-required-message="Please enter your username."
+                name="username"
+                value={credentialsByUser.username}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                onChange={handleInputChange}
+                placeholder="password *"
+                type="password"
+                className="form-control"
+                id="password"
+                required
+                data-validation-required-message="Please enter your password"
+                name="password"
+                value={credentialsByUser.password}
+              />
+            </div>
+            <div className="forgot-credentials">
+              <a className="forgot-username" href="#">
+                Forgot Username?
+              </a>
+              <a className="forgot-password" href="#">
+                Forgot Password?
+              </a>
+            </div>
+            <div className="mrgn-30-top">
+              {isAuthenticating ? (
+                <button className="submit-button authenticating">
+                  Authenticating <span className="btn-ring"></span>
+                </button>
               ) : (
-                ""
+                <button className="submit-button login">Login</button>
               )}
-              <div className="form-group">
-                <input
-                  onChange={handleInputChange}
-                  placeholder="USERNAME"
-                  className="form-control"
-                  id="username"
-                  required
-                  data-validation-required-message="Please enter your username."
-                  name="username"
-                  value={credentialsByUser.username}
-                />
-                <p className="help-block text-danger"></p>
-              </div>
-              <div className="form-group">
-                <input
-                  onChange={handleInputChange}
-                  placeholder="PASSWORD"
-                  type="password"
-                  className="form-control"
-                  id="password"
-                  required
-                  data-validation-required-message="Please enter your password"
-                  name="password"
-                  value={credentialsByUser.password}
-                />
-                <p className="help-block text-danger"></p>
-              </div>
-              <div className="forgot-credentials">
-                <a className="forgot-username">Forgot Username?</a>
-                <a className="forgot-password">Forgot Password?</a>
-              </div>
-              <div className="mrgn-30-top">
-                {isAuthenticating ? (
-                  <button className="submit-button authenticating">
-                    Authenticating <span className="btn-ring"></span>
-                  </button>
-                ) : (
-                  <button className="submit-button login">Login</button>
-                )}
-              </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
