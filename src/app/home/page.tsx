@@ -82,7 +82,7 @@ export default function HomePage() {
       })
         .then((res) => res.json())
         .then((res) => {
-          if (res.username != "kminchelle" || res.message === "invalid token") {
+          if (res.message === "invalid token") {
             router.push("/");
           } else {
             setIsLoading(false);
